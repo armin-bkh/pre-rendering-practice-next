@@ -10,7 +10,7 @@ const links = [
 
 const Navbar = () => {
   return (
-    <header className="p-4 shadow-md shadow-black/20">
+    <header className="p-4 shadow-md shadow-black/10 sticky top-0 bg-[#ededed] z-50">
       <nav>
         <ul className="flex">
           {links.map((link) => (
