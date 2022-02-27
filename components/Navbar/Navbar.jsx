@@ -29,9 +29,9 @@ const NavItem = ({ Icon, link }) => {
 
   return (
     <li
-      className={`hover:scale-125 hover:text-white transition transform active:text-red-700 ${
-        router.pathname === link.href && "text-white"
-      }`}
+      className={`hover:scale-125 transition transform active:text-blue-400 font-bold ${
+        router.pathname === link.href && "text-blue-400"
+      } `}
     >
       <Link href={link.href}>
         <a className="px-4 py-1 capitalize flex items-center">
