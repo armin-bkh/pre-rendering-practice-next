@@ -20,12 +20,12 @@ export const getStaticProps = async ({ params: { blogId } }) => {
 };
 
 const BlogDetailPage = ({ blog }) => {
-  console.log(blog);
+
   return (
     <main className="p-5">
       <h1 className="text-blue-400 mb-8 text-2xl font-bold">{blog.title}</h1>
       <div className="w-full relative mb-3 h-72 lg:h-screen">
-        <Image src={blog.image} layout="fill" blurDataURL />
+        <Image src={blog.image} alt={blog.title} layout="fill" blurDataURL />
       </div>
       <p className="mb-1 text-sm">tags:</p>
       <div className="flex items-center mb-7 overflow-x-auto">

@@ -11,9 +11,11 @@ const BlogItem = ({ blog }) => {
       <div className="relative w-full h-72 overflow-hidden">
         <Image
           src={blog.image}
+          alt={blog.title}
           layout="fill"
           className="hover:scale-150 hover:rotate-12 transform transition"
           priority
+          blurDataURL
         />
       </div>
       <div className="p-3">
