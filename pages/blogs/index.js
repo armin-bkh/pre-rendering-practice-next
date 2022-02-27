@@ -1,6 +1,6 @@
-import BlogItem from "../components/BlogItem/BlogItem";
+import BlogItem from "components/BlogItem/BlogItem";
 
-const BASEURL = "https://api.freerealapi.com";
+export const BASEURL = "https://api.freerealapi.com";
 
 export const getStaticProps = async () => {
   const { blogs } = await (await fetch(`${BASEURL}/blogs`)).json();

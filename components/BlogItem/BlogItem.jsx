@@ -4,7 +4,10 @@ import { useRouter } from "next/router";
 const BlogItem = ({ blog }) => {
   const router = useRouter();
   return (
-    <article className="shadow-md rounded-md overflow-hidden cursor-pointer">
+    <article
+      onClick={() => router.push(`/blogs/${blog._id}`)}
+      className="shadow-md rounded-md overflow-hidden cursor-pointer"
+    >
       <div className="relative w-full h-72 overflow-hidden">
         <Image
           src={blog.image}
