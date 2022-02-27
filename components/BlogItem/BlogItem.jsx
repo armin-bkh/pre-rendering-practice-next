@@ -6,7 +6,7 @@ const BlogItem = ({ blog }) => {
   return (
     <article
       onClick={() => router.push(`/blogs/${blog._id}`)}
-      className="shadow-md rounded-md overflow-hidden cursor-pointer"
+      className="shadow-md rounded-md overflow-hidden cursor-pointer flex flex-col"
     >
       <div className="relative w-full h-72 overflow-hidden">
         <Image
@@ -20,7 +20,7 @@ const BlogItem = ({ blog }) => {
         <h2 className="text-xl text-blue-400 mb-5">{blog.title}</h2>
         <p className="text-sm text-justify">{blog.text.substring(0, 500)}...</p>
       </div>
-      <footer className="flex items-center justify-between text-xs px-3 pt-3 border-t border-blue-300">
+      <footer className="flex items-center justify-between text-xs p-3 border-t border-blue-300 mt-auto">
         <span>
           created: <br />
           {blog.createdAt}
