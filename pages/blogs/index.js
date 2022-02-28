@@ -12,7 +12,6 @@ export const getStaticProps = async () => {
 };
 
 const BlogsPage = ({ blogs }) => {
-  console.log(blogs);
   return (
     <main className="p-5">
       <h1 className="text-4xl text-blue-400 font-bold mb-10">list of blogs</h1>
