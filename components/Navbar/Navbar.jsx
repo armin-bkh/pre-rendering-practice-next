@@ -6,6 +6,7 @@ import { BookOpenIcon } from "@heroicons/react/solid";
 const links = [
   { id: 1, title: "home", icon: HomeIcon, href: "/" },
   { id: 2, title: "blogs", icon: BookOpenIcon, href: "/blogs" },
+  { id: 2, title: "comments", icon: BookOpenIcon, href: "/comments" },
 ];
 
 const Navbar = () => {

@@ -1,3 +1,5 @@
+import { useRouter } from "next/router";
+
 export const getServerSideProps = async () => {
   const comments = await (
     await fetch(`https://jsonplaceholder.typicode.com/comments`)
@@ -11,11 +13,13 @@ export const getServerSideProps = async () => {
 };
 
 const CommentsListPage = ({ comments }) => {
+  const router = useRouter();
   return (
     <main className="p-5">
       <ul>
         {comments.map((comment) => (
           <li
+            onClick={() => router.push(`/comments/${comment.id}`)}
             className="shadow-md mb-5 rounded-md cursor-pointer"
             key={comment.id}
           >
