@@ -12,15 +12,17 @@ export const getStaticPaths = async () => {
 
 export const getStaticProps = async ({ params: { blogId } }) => {
   const { blog } = await (await fetch(`${BASEURL}/blogs/${blogId}`)).json();
+  const { comments } = await (await fetch(`${BASEURL}/comments`)).json();
   return {
     props: {
       blog,
+      comments: comments.filter((comment) => comment.blog === blog._id),
     },
+    revalidate: 10,
   };
 };
 
-const BlogDetailPage = ({ blog }) => {
-
+const BlogDetailPage = ({ blog, comments }) => {
   return (
     <main className="p-5">
       <h1 className="text-blue-400 mb-8 text-2xl font-bold">{blog.title}</h1>
@@ -43,6 +45,19 @@ const BlogDetailPage = ({ blog }) => {
         <span>created: {blog.createdAt}</span>
         <span>updated: {blog.updatedAt}</span>
       </footer>
+
+      <div className="shadow-lg mb-2">
+        <h1 className="mb-3 text-blue-400">comments:</h1>
+        {comments.map((comment) => (
+          <div
+            className="border-b border-blue-400 py-1 px-2 rounded-md"
+            key={comment._id}
+          >
+            <p>{comment.user.name}</p>
+            <p>{comment.text}</p>
+          </div>
+        ))}
+      </div>
     </main>
   );
 };

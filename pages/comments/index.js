@@ -1,9 +1,8 @@
 import { useRouter } from "next/router";
+import { BASEURL } from "pages/blogs";
 
 export const getServerSideProps = async () => {
-  const comments = await (
-    await fetch(`https://jsonplaceholder.typicode.com/comments`)
-  ).json();
+  const { comments } = await (await fetch(`${BASEURL}/comments`)).json();
 
   return {
     props: {
@@ -19,12 +18,12 @@ const CommentsListPage = ({ comments }) => {
       <ul>
         {comments.map((comment) => (
           <li
-            onClick={() => router.push(`/comments/${comment.id}`)}
+            onClick={() => router.push(`/comments/${comment._id}`)}
             className="shadow-md mb-5 rounded-md cursor-pointer"
-            key={comment.id}
+            key={comment._id}
           >
-            <h3 className="text-xl text-blue-400">{comment.email}</h3>
-            <p>{comment.body}</p>
+            <h3 className="text-xl text-blue-400">{comment.user.email}</h3>
+            <p>{comment.text}</p>
           </li>
         ))}
       </ul>
